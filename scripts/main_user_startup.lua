@@ -1,22 +1,16 @@
--- AuraFlow User Startup Script Example
--- This script can be configured to run when AuraFlow starts.
+print("LUA: main_user_startup.lua loaded!")
 
-print("AuraFlow Lua: main_user_startup.lua loaded!")
+-- Test calling a C function registered globally
+print("LUA: Calling global c_test_function...")
+local result = c_test_function("hello from Lua", "second arg")
+print("LUA: Result from c_test_function: " .. (result or "nil"))
 
--- Hypothetical API usage:
-if auraflow and auraflow.core then
-    auraflow.core.log_message("INFO", "Hello from 'main_user_startup.lua' script!")
-
-    -- Example: Register a simple command
-    -- auraflow.commands.register("my_lua_cmd", function(args)
-    --   auraflow.core.log_message("INFO", "my_lua_cmd executed with args: " .. table.concat(args or {}, ", "))
-    --   return "Command successful!"
-    -- end)
-
-    -- Example: Subscribe to an application event
-    -- auraflow.events.subscribe("core.project_loaded", function(event_data)
-    --    auraflow.core.log_message("INFO", "Lua detected project loaded: " .. event_data.project_name)
-    -- end)
+-- Test calling a C function registered under a table
+if auraflow and auraflow.core and auraflow.core.log then
+    print("LUA: Calling auraflow.core.log...")
+    auraflow.core.log("This is a test message from Lua via auraflow.core.log!")
 else
-    print("AuraFlow Lua: 'auraflow' API object not found. (This is normal if API isn't fully initialized yet or script runs too early)")
+    print("LUA: auraflow.core.log not found!")
 end
+
+print("LUA: End of main_user_startup.lua")
