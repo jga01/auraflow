@@ -1,0 +1,1 @@
+// TODO: CMakeLists.txt for example_custom_plot plugin (suffix .afpvz)

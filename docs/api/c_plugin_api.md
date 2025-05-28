@@ -1,0 +1,3 @@
+# C Plugin API Reference
+
+Detailed documentation for `auraflow_plugin_api.h`...
