@@ -1,0 +1,3 @@
+## Core Architecture
+
+Overview of the main components...

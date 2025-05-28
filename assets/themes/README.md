@@ -1,0 +1,1 @@
+Themes for AuraFlow UI, typically in JSON format defining Dear ImGui style variables.
